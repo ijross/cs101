@@ -1,0 +1,62 @@
+Ian Ross
+ijross@ucsc.edu
+
+MAIN EXECUTABLE: store
+
+Makefile
+Compiles all files and makes three different executables:
+store : main program file that can be run with the test files
+hashDriver: tests the implementation of the hash ADT
+countlistdriver: tests the implementation of the bookcountlist ADT
+
+store.c
+Main program which uses a list and a hashtable to take in customer purchases
+and keeps track of copurchases for each book which are then used
+to print a recommendation 
+
+hash.h
+Provides module for hash ADT to be used for book ID's 
+
+hash.c
+Implements hash ADT to take bookID's and hash them
+while keeping a list of bookcount pairs
+Uses chaining as collision resolution using the hashlist ADT
+Uses multiplication method of hashing
+
+hashdr.c
+Driver program for hash.c
+Makes an executable hashDriver which demonstrates working hashtable
+
+hashlist.h
+Provides module for hashlist ADT to be used to resolve collisions
+in the hash ADT
+
+hashlist.c
+Implements the hashlist ADT. Each node in the list holds an ID
+which has been hashed to that particular list
+Each ID in list has its own node which contains a bookcountlist
+which keeps track of the copurchases for that particular book using
+the bookcountlist ADT
+
+bookcountlist.h
+Provides module for bookcountlist ADT used for storing 
+book count pairs for giving recommendations
+
+bookcountlist.c
+Implements the bookcountlist ADT which takes in ID's and if they are already
+in the list it adds 1 to the count and if not it creates a new node for
+that particular book
+
+booklistdr.c
+Provides a driver program for the bookcountlist to make sure everything
+is working correctly
+
+list.h
+Provides module for list ADT to keep track of customer purchaes
+
+list.c 
+implements list ADT which keeps track of customer purchases and is used to add 
+to the bookcountlist by adding all that customers past activity into
+the copurchase list
+
+
